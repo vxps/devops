@@ -1,0 +1,21 @@
+---
+  - name: Deploy Django application with Docker
+    hosts: app
+    become: yes
+    tasks:
+      - name: Pull Django Docker image
+        docker_image:
+          name: timurbabs/django
+          tag: latest
+          source: pull
+  
+      - name: Run Django container
+        docker_container:
+          name: django_app
+          image: timurbabs/django:latest
+          state: started
+          restart_policy: always
+          ports:
+            - "8000:8000"
+           
+  
