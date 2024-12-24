@@ -1,0 +1,10 @@
+- name: Install and configure Docker
+  hosts: app
+  become: yes
+  
+  tasks:
+    - name: Install Docker
+      include_role:
+        name: Docker
+- import_playbook: playbooks/local/clone_repo.yml
+- import_playbook: playbooks/local/run_app.yml

@@ -1,0 +1,5 @@
+roles:
+  - name: Docker
+    src: https://github.com/vxps/Docker.git
+    version: main
+    scm: git
