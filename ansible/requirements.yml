@@ -3,3 +3,8 @@ roles:
     src: https://github.com/vxps/Docker.git
     version: main
     scm: git
+    
+  - name: nginx
+    src: https://github.com/vxps/nginx
+    version: main
+    scm: git
