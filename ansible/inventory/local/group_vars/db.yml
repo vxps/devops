@@ -1,0 +1,14 @@
+pg_version: 15
+pg_config_dir: "/etc/postgresql/{{ pg_version }}/main"
+pg_data_dir: "/var/lib/postgresql/{{ pg_version }}/main"
+pg_custom_data_dir: "/custom/data/dir"
+pg_users:  
+  - name: postgres
+    password: password
+pg_databases:
+  - name: postgres
+    owner: postgres
+pg_replication_user: replica_user
+pg_replication_password: replica_password
+pg_role: "master" 
+pg_superuser_password: password

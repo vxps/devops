@@ -14,3 +14,7 @@ roles:
     version: main
     scm: git
    
+  - name: postgresql
+    src: https://github.com/vxps/postgresql.git
+    version: main
+    scm: git

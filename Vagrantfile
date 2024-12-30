@@ -3,7 +3,7 @@ Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu/focal64"
   
   # Количество требуемых машин
-  SERVERS = 1
+  SERVERS = 2
   # Имя сетевого интерфейса для организации моста
   BRIDGE = "en0: Wi-Fi (Wireless)"
 
