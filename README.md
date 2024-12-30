@@ -1,31 +1,36 @@
 # devops
 ## **Цель работы**
 
-Научиться писать Molecule-тесты для ролей
+Закрепить понимание процесса написания ролей и их конфигурирования и развертывания
 
 ## **Рекомендуемая документация**
 
-- [Habr об OpenVPN](https://habr.com/ru/post/233971/)
-- [VPN: ещё раз просто о сложном](https://habr.com/ru/post/534250/)
-- [Урок из Школы DevOps: Тестирование ролей в Molecule](https://www.youtube.com/watch?v=0b3YXlffo1Q)
-- [Статья про Molecule — тестируем роли Ansible](https://habr.com/ru/post/437216/)
+- [Подборка по Ansible](https://gitlab.com/deusops/lessons/documentation/ansible)
+- [Документация к PostgreSQL на русском](https://postgrespro.ru/docs/postgrespro/14/index)
+- [Установка от ruvds](https://ruvds.com/ru/helpcenter/postgresql-pgadmin-ubuntu/)
+- [Что такое pg_hba](https://postgrespro.ru/docs/postgrespro/10/auth-pg-hba-conf)
+- [Как работать с пользователями в Postgres](https://www.dmosk.ru/miniinstruktions.php?mini=postgresql-users)
+- [Про отказоустойчивость в БД](https://postgrespro.ru/docs/postgrespro/14/high-availability)
+- [Настройка репликации в Postgres](https://selectel.ru/blog/tutorials/how-to-set-up-replication-in-postgresql/)
+- [Управление высокодоступными PostgreSQL кластерами с помощью Patroni](https://habr.com/ru/post/504044/)
 
 ## **Ход работы**
 
-1. Написать Ansible Playbook поднимающий OpenVPN сервер
-2. Через Molecule инициировать структуру для роли и вынести задачи поднятия сервера, с конфигурацией через переменные
-3. При завершении работы плейбук должен разместить в playbook-dir артефактный ovpn-файл для подключения
-4. Роль должна проходить стандартные тестами molecule test
-5. Плейбук подключает роль через ansible-galaxy
+1. Развернуть виртуальную машину для приложения (app) и виртуальную машину для будущей системы базы данных (db) через Vagrantfile
+2. Написать роль установки **PostgreSQL** и плейбук, который ее разворачивает
+3. Все параметры должны быть вынесены в переменные, все переменные должны быть префиксованы, значения переменных устанавливаются через group_vars для плейбука, роль должна быть покрыта тестами
+4. Добавить возможность смены директории с данными на кастомную
+5. Добавить возможность создания баз данных и пользователей
+6. ***Добавить функционал настройки streaming-репликации***
+7. ***Продумать логику определения master и replica нод СУБД и их настройки при работе роли***
 
 ## **Ход выполнения лабораторной** ##
-1. Установили молекул командой ```pipx install molecule```
-2. Создали роль openvpn и инициализировали сценарий молекул командой
+1. Создали роль postgresql и инициализировали сценарий молекул командой
 ``` molecule init scenario ```
-3. Создали репо для роли openvpn(https://github.com/vxps/openvpn)
-4. Установили роль
+2. Создали репо для роли postgresql(https://github.com/vxps/postgresql)
+3. Установили роль для postgresql
 ``` ansible-galaxy install -r requirements.yml ```
-5.Запустили плейбук
+4.Запустили плейбук
 ``` ansible-playbook -i /inventory/local/hosts.ini lab4.yml ```
-6. Запустили тесты
+5. Запустили тесты
 ``` molecule test```
