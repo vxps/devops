@@ -31,6 +31,6 @@
 3. Установили роль для postgresql
 ``` ansible-galaxy install -r requirements.yml ```
 4.Запустили плейбук
-``` ansible-playbook -i /inventory/local/hosts.ini lab4.yml ```
+``` ansible-playbook -i /inventory/local/hosts.ini lab5.yml ```
 5. Запустили тесты
 ``` molecule test```
