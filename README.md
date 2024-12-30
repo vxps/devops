@@ -30,7 +30,7 @@
 2. Создали репо для роли postgresql(https://github.com/vxps/postgresql)
 3. Установили роль для postgresql
 ``` ansible-galaxy install -r requirements.yml ```
-4.Запустили плейбук
+4. Запустили плейбук
 ``` ansible-playbook -i /inventory/local/hosts.ini lab5.yml ```
 5. Запустили тесты
 ``` molecule test```
