@@ -1,0 +1,7 @@
+- name: Deploy OpenVPN server
+  hosts: all
+  become: yes
+  tasks:
+    - name: start openvpn server
+      include_role: 
+        name: openvpn

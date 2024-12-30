@@ -1,0 +1,5 @@
+- name: deploy application
+  hosts: app
+  roles:
+    - docker
+    - application

@@ -8,3 +8,9 @@ roles:
     src: https://github.com/vxps/nginx
     version: main
     scm: git
+
+  - name: openvpn
+    src: https://github.com/vxps/openvpn.git
+    version: main
+    scm: git
+   
